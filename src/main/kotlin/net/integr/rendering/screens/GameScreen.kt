@@ -30,7 +30,7 @@ class GameScreen {
         val INSTANCE = GameScreen()
     }
 
-    private var branding: Box = Box(5, 5, 220, 20, "Onyx | Cracked by CatGirlLana v${Onyx.VERSION} :)", textCentered = false, outlined = true)
+    private var branding: Box = Box(5, 5, 70, 20, "Onyx v${Onyx.VERSION}", textCentered = false, outlined = true)
 
 
     @EventListen

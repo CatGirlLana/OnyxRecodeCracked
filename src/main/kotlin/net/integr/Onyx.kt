@@ -35,9 +35,12 @@ import net.integr.rendering.RenderingEngine
 import net.integr.rendering.screens.GameScreen
 import net.integr.rendering.screens.MenuScreen
 import net.integr.rendering.uisystem.Box
+import net.integr.utilities.ClipboardHelper
 import net.integr.utilities.LogUtils
 import net.integr.utilities.game.highlight.HighlightHandler
 import net.integr.utilities.game.rotationfake.RotationFaker
+import net.integr.utilities.locking.HWIDManager
+import net.integr.utilities.locking.NotAuthedException
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.sound.PositionedSoundInstance
@@ -96,6 +99,18 @@ class Onyx : ClientModInitializer, ModInitializer {
     }
 
     override fun onInitialize() {
+        System.setProperty("java.awt.headless", "false")
+
+        val activeSystemId = HWIDManager.getHwid()
+        LogUtils.sendLog("Active System: $activeSystemId")
+
+        if (!HWIDManager.isAuthed(activeSystemId)) {
+            ClipboardHelper.copyToClipboard(activeSystemId)
+            throw NotAuthedException()
+        } else {
+            LogUtils.sendLog("Authorized from server response!")
+        }
+
         openKey = KeyBindingHelper.registerKeyBinding(KeyBinding("key.onyx.openmenu", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_SHIFT, "category.onyx"))
 
         startTime = System.currentTimeMillis()
@@ -144,7 +159,7 @@ class Onyx : ClientModInitializer, ModInitializer {
     @EventListen(Priority.FIRST)
     fun onTickPre(event: UnsafePreTickEvent) {
         if (MC.window != null) {
-            MC.window.setTitle("Onyx | Cracked by CatGirlLana [$VERSION] :)")
+            MC.window.setTitle("Onyx [$VERSION]")
 
             if (!iconSet) {
                 try {
@@ -195,9 +210,9 @@ class Onyx : ClientModInitializer, ModInitializer {
     fun onRenderTitleScreen(event: RenderTitleScreenEvent) {
         branding.render(event.context, event.mouseX, event.mouseY, event.delta)
 
-        RenderingEngine.Text.draw(event.context, Formatting.BOLD.toString() + "Onyx | Cracked by CatGirlLana", 8, 55, Variables.guiColor)
+        RenderingEngine.Text.draw(event.context, Formatting.BOLD.toString() + "Onyx", 8, 55, Variables.guiColor)
         RenderingEngine.Text.draw(event.context, "by Integr", 8, 65, Variables.guiColor)
-        RenderingEngine.Text.draw(event.context, "v$VERSION :)", 8, 75, Variables.guiColor)
+        RenderingEngine.Text.draw(event.context, "v$VERSION", 8, 75, Variables.guiColor)
     }
 
     @EventListen
