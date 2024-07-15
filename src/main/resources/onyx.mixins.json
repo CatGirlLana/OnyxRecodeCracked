@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "net.integr.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "ArmorFeatureRendererMixin",
+    "BlockItemMixin",
+    "BlockMixin",
+    "ClientConnectionMixin",
+    "ClientPlayerEntityMixin",
+    "ClientPlayerInteractionManagerMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ClientWorldMixin",
+    "EndCrystalEntityRendererMixin",
+    "EntityRendererMixin",
+    "GameRendererMixin",
+    "HeldItemRendererMixin",
+    "InGameHudMixin",
+    "KeyboardMixin",
+    "LightMapTextureManagerMixin",
+    "LivingEntityMixin",
+    "LivingEntityRendererMixin",
+    "MinecraftClientMixin",
+    "TitleScreenMixin",
+    "WorldRendererMixin"
+  ]
+}
