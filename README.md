@@ -6,6 +6,7 @@
 
 - Integr - Making this client
 - CatGirlLana - Cracking this client
+- Mironov - Helping me understand auth
 - Captain_Rex_PL - Emotional Support
 
 
