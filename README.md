@@ -9,6 +9,7 @@
 - CatGirlLana - Cracking this client
 - Mironov - Helping me understand auth
 - Captain_Rex_PL - Emotional Support
+- C0w - Proviiding the most recent jar
 
 
 
