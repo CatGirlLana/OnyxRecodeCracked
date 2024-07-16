@@ -13,3 +13,4 @@
 
 
 # DMCA this if your a pedophile
+![Integr Rage](https://github.com/user-attachments/assets/a37086a3-5a2f-46d0-9394-d4cc309583c9)
