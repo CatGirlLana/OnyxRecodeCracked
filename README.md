@@ -1,5 +1,6 @@
 # Onyx Cracked 
  This client is shit do not use
+![Integr Rage v2](https://github.com/user-attachments/assets/c2eed999-4618-4cdf-a62f-81a87ef70e5f)
 
 
 # Credits:
